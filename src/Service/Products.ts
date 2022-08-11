@@ -109,14 +109,13 @@ class ProductService {
   }
 
   async ListaProductType({ id }: ProductId) {
-    const product = await prisma.typeProduct.findMany({
+    const Listaproducts = await prisma.typeProduct.findMany({
       where: {
         typeId: id
-      },
-      include: {
-        product
       }
-    })
+    });
+
+    return Listaproducts;
   }
 }
 
