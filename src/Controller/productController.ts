@@ -7,12 +7,13 @@ class ProductController {
 
   async createProduct(request: Request, response: Response) {
 
-    const { name, barcode, price } = request.body;
+    const { name, barcode, price, description } = request.body;
     const service = new ProductService();
     const product = await service.createProduct({
       name,
       barcode,
-      price
+      price,
+      description
     });
 
     return response.json(product);
@@ -20,13 +21,14 @@ class ProductController {
 
   async changeProduct(request: Request, response: Response) {
 
-    const { id, name, barcode, price } = request.body;
+    const { id, name, barcode, price, description } = request.body;
     const service = new ProductService();
     const product = await service.changeProduct({
       id,
       name,
       barcode,
-      price
+      price,
+      description
     });
 
     return response.json(product);

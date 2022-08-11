@@ -5,6 +5,7 @@ interface RequestProduct {
   name: string;
   barcode: string;
   price: number;
+  description: string;
 
 }
 
@@ -13,7 +14,7 @@ interface ChangeProduct {
   name: string;
   barcode: string;
   price: number;
-
+  description: string;
 }
 
 interface ProductId {
@@ -21,7 +22,7 @@ interface ProductId {
 }
 
 class ProductService {
-  async createProduct({ name, barcode, price }: RequestProduct) {
+  async createProduct({ name, barcode, price, description }: RequestProduct) {
 
     const NameAlreadyExists = await prisma.product.findFirst({
       where: {
@@ -38,13 +39,14 @@ class ProductService {
         name,
         barcode,
         price,
+        description
       }
     });
 
     return product;
   }
 
-  async changeProduct({ id, name, barcode, price }: ChangeProduct) {
+  async changeProduct({ id, name, barcode, price, description }: ChangeProduct) {
     const NameExist = await prisma.product.findFirst({
       where: {
         name
@@ -61,7 +63,8 @@ class ProductService {
       data: {
         name,
         barcode,
-        price
+        price,
+        description
       }
     });
 
