@@ -4,6 +4,8 @@ import { authenticateController } from "./Controller/authenticateController";
 import { ProductController } from "./Controller/productController";
 import { typeController } from "./Controller/typeController";
 import { UserController } from "./Controller/UserController";
+import { TokenValed } from "./middleware/TokenValed";
+import { can } from "./middleware/AccessUserSystem"
 
 const router = Router();
 
@@ -13,7 +15,7 @@ const Access = new AccessController();
 const User = new UserController();
 const login = new authenticateController();
 const type = new typeController();
-const product = new ProductController()
+const product = new ProductController();
 
 
 // router the access
@@ -40,7 +42,7 @@ router.delete('/deleteType', type.deleteType);
 
 // product
 
-router.post('/createproduct',);
+router.post('/createproduct', TokenValed, can,);
 router.put('/changeProduct',);
 router.delete('/deleteProduct',);
 
