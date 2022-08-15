@@ -44,6 +44,25 @@ class ProductController {
 
     return response.json(product);
   }
+
+  async ListaToTal(request: Request, response: Response) {
+
+    const service = new ProductService();
+    const products = await service.LisatProduct();
+
+    return response.json(products);
+  }
+
+  async ListaTypeProducts(request: Request, response: Response) {
+
+    const { id } = request.body;
+    const service = new ProductService();
+    const product = await service.ListaProductType({
+      id
+    });
+
+    return response.json(product);
+  }
 }
 
 export { ProductController } 

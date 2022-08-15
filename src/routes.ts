@@ -42,10 +42,11 @@ router.delete('/deleteType', type.deleteType);
 
 // product
 
-router.post('/createproduct', TokenValed, can,);
-router.put('/changeProduct',);
-router.delete('/deleteProduct',);
-
+router.post('/createproduct', TokenValed, can, product.createProduct);
+router.put('/changeProduct', TokenValed, can, product.changeProduct);
+router.delete('/deleteProduct', TokenValed, can, product.deleteProduct);
+router.get('/productList', product.ListaToTal);
+router.get('/productTypeList', product.ListaTypeProducts);
 
 
 
