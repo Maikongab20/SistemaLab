@@ -21,6 +21,8 @@ Essa Api foi desenvolvida para aumentar o conhecimeto na tecnologia de node ,exp
 
     }
   });
+
+  **expect** recebe a resposta da request que comrarar a resposta recebida com **.tobe** que pode variar de acordo com o que espera.
+  **.tobe** tem vairio tipo para cada teste que vai ser feito dependendo da resposta que foi recebida 
  }
 
- 
