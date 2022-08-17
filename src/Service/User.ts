@@ -15,7 +15,7 @@ interface UserDelete {
 
 class UserService {
 
-  async createUser({ name, CPF, password }: RequestUser) {
+  async createUser({ name, CPF, email, password }: RequestUser) {
 
     const nameAlredyExists = await prisma.user.findFirst({
       where: {
@@ -34,6 +34,7 @@ class UserService {
         id: uuid(),
         name,
         CPF,
+        email,
         password: passwordHash
       }
     });

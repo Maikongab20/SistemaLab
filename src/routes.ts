@@ -17,6 +17,12 @@ const login = new authenticateController();
 const type = new typeController();
 const product = new ProductController();
 
+router.get('/api/', (request, response) => {
+  return response.json({
+    name: "maikon",
+    password: "1234"
+  });
+})
 
 // router the access
 router.post('/createAccess', Access.CreateAccess);

@@ -13,8 +13,8 @@ class UserController {
     const service = new UserService();
     const user = await service.createUser({
       name,
-      email,
       CPF,
+      email,
       password,
     });
 

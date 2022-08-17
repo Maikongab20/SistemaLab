@@ -8,13 +8,6 @@ app.use(express.json());
 
 app.use(router);
 
-app.get('/api/', (request, response) => {
-  return response.json({
-    name: "maikon",
-    password: "1234"
-  });
-})
-
 app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
   return response.json({
     status: "error",
